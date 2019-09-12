@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_AddNoteDialogFragmentRootCl"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/main_AddNoteDialogFragmentTodoTitleEt"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="@string/add_note_dialog_fragment_todo_title_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/main_AddNoteDialogFragmentTodoDescriptionEt"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:hint="@string/add_note_dialog_fragment_todo_description_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/main_AddNoteDialogFragmentTodoTitleEt" />
+
+
+    <RadioGroup
+        android:id="@+id/main_AddNoteDialogFragmentTodoImportanceRg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_AddNoteDialogFragmentTodoDescriptionEt">
+
+        <RadioButton
+            android:id="@+id/main_AddNoteDialogFragmentTodoImportanceLowRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="@string/add_note_dialog_fragment_todo_importance_low" />
+
+        <RadioButton
+            android:id="@+id/main_AddNoteDialogFragmentTodoImportanceMediumRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_note_dialog_fragment_todo_importance_medium" />
+
+        <RadioButton
+            android:id="@+id/main_AddNoteDialogFragmentTodoImportanceHighRb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_note_dialog_fragment_todo_importance_high" />
+
+    </RadioGroup>
+
+
+    <Button
+        android:id="@+id/main_AddNoteDialogFragmentTodoCancelBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_note_dialog_fragment_cancel_btn_Txt"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintRight_toLeftOf="@id/main_AddNoteDialogFragmentTodoOkBtn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/main_AddNoteDialogFragmentTodoImportanceRg" />
+
+    <Button
+        android:id="@+id/main_AddNoteDialogFragmentTodoOkBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_note_dialog_fragment_ok_btn_txt"
+        android:layout_marginLeft="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/main_AddNoteDialogFragmentTodoCancelBtn"
+        app:layout_constraintTop_toBottomOf="@+id/main_AddNoteDialogFragmentTodoImportanceRg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
