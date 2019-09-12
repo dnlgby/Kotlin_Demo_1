@@ -1,6 +1,6 @@
-package data
+package com.example.kotlin_ex1.ui.data
 
-import models.Todo
+import com.example.kotlin_ex1.ui.models.Todo
 
 object MockData {
     val data = listOf(

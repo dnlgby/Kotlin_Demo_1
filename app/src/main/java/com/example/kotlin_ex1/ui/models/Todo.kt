@@ -1,4 +1,4 @@
-package models
+package com.example.kotlin_ex1.ui.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

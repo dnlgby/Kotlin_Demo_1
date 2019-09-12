@@ -1,10 +1,10 @@
-package data.local
+package com.example.kotlin_ex1.ui.data.local
 
 import androidx.paging.DataSource
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import models.Todo
+import com.example.kotlin_ex1.ui.models.Todo
 
 @Dao
 interface TodoDao {

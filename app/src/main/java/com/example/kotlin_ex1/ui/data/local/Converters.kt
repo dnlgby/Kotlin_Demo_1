@@ -1,7 +1,7 @@
-package data.local
+package com.example.kotlin_ex1.ui.data.local
 
 import androidx.room.TypeConverter
-import models.Todo
+import com.example.kotlin_ex1.ui.models.Todo
 
 object Converters {
 

@@ -1,4 +1,4 @@
-package com.example.kotlin_ex1.ui
+package com.example.kotlin_ex1.ui.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_ex1.R
 import kotlinx.android.synthetic.main.activity_main_list_item.view.*
-import models.Todo
+import com.example.kotlin_ex1.ui.models.Todo
 
 class MainRecyclerAdapter :
     PagedListAdapter<Todo, MainRecyclerAdapter.MainViewHolder>(diffCallback) {

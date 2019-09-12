@@ -1,4 +1,4 @@
-package com.example.kotlin_ex1.ui
+package com.example.kotlin_ex1.ui.ui
 
 import android.graphics.Rect
 import android.view.View

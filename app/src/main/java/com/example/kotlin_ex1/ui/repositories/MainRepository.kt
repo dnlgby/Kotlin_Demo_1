@@ -1,11 +1,11 @@
-package repositories
+package com.example.kotlin_ex1.ui.repositories
 
 import android.content.Context
 import androidx.paging.DataSource
-import data.local.DatabaseLayer
+import com.example.kotlin_ex1.ui.data.local.DatabaseLayer
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
-import models.Todo
+import com.example.kotlin_ex1.ui.models.Todo
 
 class MainRepository(context: Context) {
 

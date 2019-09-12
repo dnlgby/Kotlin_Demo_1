@@ -1,21 +1,26 @@
-package com.example.kotlin_ex1.ui
+package com.example.kotlin_ex1.ui.ui
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin_ex1.R
+import com.example.kotlin_ex1.ui.di.ViewModelProviderFactory
+import com.example.kotlin_ex1.ui.models.Todo
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import models.Todo
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(), AddNoteDialogFragment.AddNoteDialogFragmentActions {
+class MainActivity : DaggerAppCompatActivity(),
+    AddNoteDialogFragment.AddNoteDialogFragmentActions {
 
     companion object {
         const val LIST_SPACING = 10
-        const val ADD_NOTE_DIALOG_TAG = "com.example.kotlin_ex1.ui.AddNoteDialogFragment"
+        const val ADD_NOTE_DIALOG_TAG = "com.example.kotlin_ex1.ui.ui.AddNoteDialogFragment"
     }
 
+    @Inject
+    internal lateinit var mViewModelProviderFactory: ViewModelProviderFactory
     private lateinit var mainViewModel: MainViewModel
     private lateinit var mainListAdapter: MainRecyclerAdapter
 
@@ -38,14 +43,19 @@ class MainActivity : AppCompatActivity(), AddNoteDialogFragment.AddNoteDialogFra
 
         main_activityMainAddNoteFab.apply {
             setOnClickListener {
-                val dialog = AddNoteDialogFragment.getInstance(this@MainActivity)
-                dialog.show(supportFragmentManager, ADD_NOTE_DIALOG_TAG)
+                val dialog =
+                    AddNoteDialogFragment.getInstance(this@MainActivity)
+                dialog.show(
+                    supportFragmentManager,
+                    ADD_NOTE_DIALOG_TAG
+                )
             }
         }
     }
 
     private fun loadViewModel() {
-        mainViewModel = ViewModelProvider(this).get(MainViewModel::class.java)
+        mainViewModel =
+            ViewModelProvider(this, mViewModelProviderFactory).get(MainViewModel::class.java)
         observeViewModel()
     }
 

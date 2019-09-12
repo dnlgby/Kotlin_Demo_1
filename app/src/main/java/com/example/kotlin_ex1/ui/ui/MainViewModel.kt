@@ -1,4 +1,4 @@
-package com.example.kotlin_ex1.ui
+package com.example.kotlin_ex1.ui.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
@@ -6,8 +6,8 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.Config
 import androidx.paging.toLiveData
 import kotlinx.coroutines.launch
-import models.Todo
-import repositories.MainRepository
+import com.example.kotlin_ex1.ui.models.Todo
+import com.example.kotlin_ex1.ui.repositories.MainRepository
 
 class MainViewModel(app: Application) : AndroidViewModel(app) {
 
