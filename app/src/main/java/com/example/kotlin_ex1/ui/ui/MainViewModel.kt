@@ -1,16 +1,15 @@
 package com.example.kotlin_ex1.ui.ui
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Config
 import androidx.paging.toLiveData
-import kotlinx.coroutines.launch
 import com.example.kotlin_ex1.ui.models.Todo
 import com.example.kotlin_ex1.ui.repositories.MainRepository
+import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(app: Application) : AndroidViewModel(app) {
-
+class MainViewModel @Inject constructor() : ViewModel() {
 
     companion object {
         const val TODO_LIST_PAGE_SIZE = 5
@@ -18,22 +17,24 @@ class MainViewModel(app: Application) : AndroidViewModel(app) {
         const val TODO_LIST_PLACE_HOLDER = true
     }
 
-    private val repository: MainRepository by lazy {
-        MainRepository(app.applicationContext)
-    }
+    @Inject
+    lateinit var repository: MainRepository
 
-    val todoListLiveData = repository.getAllTodo()
-        .toLiveData(
-            Config(
-                pageSize = TODO_LIST_PAGE_SIZE,
-                enablePlaceholders = TODO_LIST_PLACE_HOLDER,
-                maxSize = TODO_LIST_MAX_SIZE
+
+    val todoListLiveData by lazy {
+        repository.getAllTodo()
+            .toLiveData(
+                Config(
+                    pageSize = TODO_LIST_PAGE_SIZE,
+                    enablePlaceholders = TODO_LIST_PLACE_HOLDER,
+                    maxSize = TODO_LIST_MAX_SIZE
+                )
             )
-        )
+    }
 
     fun addTodo(todo: Todo) {
         viewModelScope.launch {
-            repository.insertTodo(todo)
+           repository.insertTodo(todo)
         }
     }
 

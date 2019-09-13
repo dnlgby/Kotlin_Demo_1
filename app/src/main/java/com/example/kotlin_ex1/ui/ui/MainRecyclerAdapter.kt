@@ -38,15 +38,17 @@ class MainRecyclerAdapter :
         var todo: Todo? = null
 
         fun bindTo(item: Todo?) {
-            itemView.main_ListItemTodoTitleTv.text =
-                item?.title
-                    ?: itemView.context.getString(R.string.activity_main_list_adapter_title_tv_loading_txt)
-            itemView.main_ListItemTodoDescriptionTv.text =
-                item?.description
-                    ?: itemView.context.getString(R.string.activity_main_list_adapter_description_tv_loading_txt)
-            itemView.main_ListItemTodoImportanceTv.text =
-                Todo.importanceToString(item?.importance)
-                    ?: itemView.context.getString(R.string.activity_main_list_adapter_importance_tv_loading_txt)
+            itemView.apply {
+                main_ListItemTodoTitleTv.text =
+                    item?.title
+                        ?: context.getString(R.string.activity_main_list_adapter_title_tv_loading_txt)
+                main_ListItemTodoDescriptionTv.text =
+                    item?.description
+                        ?: context.getString(R.string.activity_main_list_adapter_description_tv_loading_txt)
+                main_ListItemTodoImportanceTv.text =
+                    Todo.importanceToString(item?.importance)
+                        ?: context.getString(R.string.activity_main_list_adapter_importance_tv_loading_txt)
+            }
         }
     }
 

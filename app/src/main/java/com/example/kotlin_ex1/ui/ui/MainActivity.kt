@@ -1,17 +1,19 @@
 package com.example.kotlin_ex1.ui.ui
 
 import android.os.Bundle
+import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin_ex1.R
-import com.example.kotlin_ex1.ui.di.ViewModelProviderFactory
 import com.example.kotlin_ex1.ui.models.Todo
-import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
+import javax.inject.Named
 
-class MainActivity : DaggerAppCompatActivity(),
+class MainActivity : AppCompatActivity(),
     AddNoteDialogFragment.AddNoteDialogFragmentActions {
 
     companion object {
@@ -20,15 +22,30 @@ class MainActivity : DaggerAppCompatActivity(),
     }
 
     @Inject
-    internal lateinit var mViewModelProviderFactory: ViewModelProviderFactory
-    private lateinit var mainViewModel: MainViewModel
+    lateinit var viewModelFactory: ViewModelProvider.Factory
+
+/*
+    @Inject
+    @field:Named("TestStringA") lateinit var testA: String
+
+    @Inject
+    @field:Named("TestStringB") lateinit var testB: String
+    Toast.makeText(this, "Tests results are: $testA and $testB and $test",
+        Toast.LENGTH_LONG).show()
+ */
+
+    private val mainViewModel: MainViewModel by viewModels {
+        viewModelFactory
+    }
+
     private lateinit var mainListAdapter: MainRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loadUi()
-        loadViewModel()
+        observeViewModel()
+
     }
 
     private fun loadUi() {
@@ -53,12 +70,6 @@ class MainActivity : DaggerAppCompatActivity(),
         }
     }
 
-    private fun loadViewModel() {
-        mainViewModel =
-            ViewModelProvider(this, mViewModelProviderFactory).get(MainViewModel::class.java)
-        observeViewModel()
-    }
-
     private fun observeViewModel() {
         mainViewModel.todoListLiveData.observe(this, Observer {
             mainListAdapter.submitList(it)
@@ -68,6 +79,5 @@ class MainActivity : DaggerAppCompatActivity(),
     override fun userClickedOk(todo: Todo) {
         mainViewModel.addTodo(todo)
     }
-
 
 }

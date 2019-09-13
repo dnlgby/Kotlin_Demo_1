@@ -33,17 +33,16 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-
+    implementation 'androidx.activity:activity-ktx:1.0.0-rc01'
     // -- Dagger
     def dagger2_version = "2.22.1"
     implementation "com.google.dagger:dagger:$dagger2_version"
     implementation "com.google.dagger:dagger-android:$dagger2_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger2_version"
+    implementation  "com.google.dagger:dagger-android-support:$dagger2_version"
     kapt "com.google.dagger:dagger-compiler:$dagger2_version"
     kapt "com.google.dagger:dagger-android-processor:$dagger2_version"
-    annotationProcessor "com.google.dagger:dagger-compiler:$dagger2_version"
-    compileOnly 'javax.annotation:jsr250-api:1.0'
-    implementation 'javax.inject:javax.inject:1'
+
+
 
 
     // -- Room
