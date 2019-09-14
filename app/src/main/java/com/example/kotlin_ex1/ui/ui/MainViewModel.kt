@@ -20,7 +20,6 @@ class MainViewModel @Inject constructor() : ViewModel() {
     @Inject
     lateinit var repository: MainRepository
 
-
     val todoListLiveData by lazy {
         repository.getAllTodo()
             .toLiveData(

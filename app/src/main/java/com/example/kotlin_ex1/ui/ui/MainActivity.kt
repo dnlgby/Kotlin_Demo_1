@@ -9,9 +9,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin_ex1.R
 import com.example.kotlin_ex1.ui.models.Todo
+import com.example.kotlin_ex1.ui.repositories.MainRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
-import javax.inject.Named
 
 class MainActivity : AppCompatActivity(),
     AddNoteDialogFragment.AddNoteDialogFragmentActions {
@@ -24,27 +24,21 @@ class MainActivity : AppCompatActivity(),
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-/*
-    @Inject
-    @field:Named("TestStringA") lateinit var testA: String
-
-    @Inject
-    @field:Named("TestStringB") lateinit var testB: String
-    Toast.makeText(this, "Tests results are: $testA and $testB and $test",
-        Toast.LENGTH_LONG).show()
- */
-
     private val mainViewModel: MainViewModel by viewModels {
         viewModelFactory
     }
 
     private lateinit var mainListAdapter: MainRecyclerAdapter
+    @Inject
+    lateinit var repository: MainRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loadUi()
         observeViewModel()
+
+        Toast.makeText(this, repository.toString(), Toast.LENGTH_LONG).show()
 
     }
 
