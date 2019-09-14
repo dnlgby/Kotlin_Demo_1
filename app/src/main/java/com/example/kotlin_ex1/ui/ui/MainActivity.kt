@@ -1,7 +1,6 @@
 package com.example.kotlin_ex1.ui.ui
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -9,7 +8,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin_ex1.R
 import com.example.kotlin_ex1.ui.models.Todo
-import com.example.kotlin_ex1.ui.repositories.MainRepository
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -29,17 +27,12 @@ class MainActivity : AppCompatActivity(),
     }
 
     private lateinit var mainListAdapter: MainRecyclerAdapter
-    @Inject
-    lateinit var repository: MainRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loadUi()
         observeViewModel()
-
-        Toast.makeText(this, repository.toString(), Toast.LENGTH_LONG).show()
-
     }
 
     private fun loadUi() {

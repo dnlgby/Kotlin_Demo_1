@@ -1,15 +1,13 @@
 package com.example.kotlin_ex1.ui.repositories
 
-import android.content.Context
 import androidx.paging.DataSource
 import com.example.kotlin_ex1.ui.data.local.DatabaseLayer
 import com.example.kotlin_ex1.ui.models.Todo
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.withContext
 
-class MainRepository(context: Context) {
+class MainRepository(private val databaseLayer: DatabaseLayer) {
 
-    private val databaseLayer = DatabaseLayer(context)
 
     fun getAllTodo(): DataSource.Factory<Int, Todo> = databaseLayer.getAllTodo()
 
