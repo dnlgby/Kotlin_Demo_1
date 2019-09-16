@@ -58,8 +58,8 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun observeViewModel() {
-        mainViewModel.todoListLiveData.observe(this, Observer {
-            mainListAdapter.submitList(it)
+        mainViewModel.todoListLiveData.observe(this, Observer { todoList ->
+            mainListAdapter.submitList(todoList)
         })
     }
 

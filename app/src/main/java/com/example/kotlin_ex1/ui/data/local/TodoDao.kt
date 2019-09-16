@@ -9,7 +9,7 @@ import com.example.kotlin_ex1.ui.models.Todo
 @Dao
 interface TodoDao {
 
-    @Query("SELECT * FROM Todo")
+    @Query("SELECT * FROM TodoTable")
     fun getAllTodo(): DataSource.Factory<Int, Todo>
 
     @Insert

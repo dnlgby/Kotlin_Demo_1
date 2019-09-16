@@ -33,9 +33,8 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
     fun addTodo(todo: Todo) {
         viewModelScope.launch {
-           repository.insertTodo(todo)
+            repository.insertTodo(todo)
         }
     }
-
 
 }

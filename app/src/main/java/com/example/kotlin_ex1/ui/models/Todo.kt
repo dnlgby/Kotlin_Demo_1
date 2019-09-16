@@ -3,9 +3,9 @@ package com.example.kotlin_ex1.ui.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
+@Entity(tableName = "TodoTable")
 data class Todo(
-    @PrimaryKey(autoGenerate = true) val todoId: Long?,
+    @PrimaryKey(autoGenerate = true) val todoId: Long = 0L,
     val title: String,
     val description: String,
     val importance: TodoImportance

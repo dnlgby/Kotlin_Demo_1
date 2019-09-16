@@ -64,7 +64,7 @@ class AddNoteDialogFragment(private val clicksListener: AddNoteDialogFragmentAct
             else -> null
         }
 
-        return Todo(null, title, description, importance!!)
+        return Todo(title = title, description = description, importance = importance!!)
     }
 
     interface AddNoteDialogFragmentActions {
