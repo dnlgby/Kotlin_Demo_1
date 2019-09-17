@@ -49,7 +49,7 @@ class AddNoteDialogFragment(private val clicksListener: AddNoteDialogFragmentAct
     }
 
     private fun getTodoItem(): Todo {
-        // No input verifying
+        // No validation
         val rb = dialogView.findViewById<RadioButton>(
             dialogView.main_AddNoteDialogFragmentTodoImportanceRg.checkedRadioButtonId
         )

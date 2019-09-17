@@ -1,6 +1,8 @@
 package com.example.kotlin_ex1.ui.ui
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.Config
 import androidx.paging.toLiveData
@@ -19,6 +21,7 @@ class MainViewModel @Inject constructor() : ViewModel() {
 
     @Inject
     lateinit var repository: MainRepository
+
 
     val todoListLiveData by lazy {
         repository.getAllTodo()
