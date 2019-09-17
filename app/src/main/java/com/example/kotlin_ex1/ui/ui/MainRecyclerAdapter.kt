@@ -4,17 +4,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagedListAdapter
+import androidx.recyclerview.widget.AsyncDifferConfig
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kotlin_ex1.R
-import kotlinx.android.synthetic.main.activity_main_list_item.view.*
 import com.example.kotlin_ex1.ui.models.Todo
+import kotlinx.android.synthetic.main.activity_main_list_item.view.*
 
 class MainRecyclerAdapter :
-    PagedListAdapter<Todo, MainRecyclerAdapter.MainViewHolder>(diffCallback) {
+    PagedListAdapter<Todo, MainRecyclerAdapter.MainViewHolder>(
+        AsyncDifferConfig.Builder<Todo>(DIFF_CALLBACK).build()
+    ) {
 
     companion object {
-        private val diffCallback = object : DiffUtil.ItemCallback<Todo>() {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Todo>() {
             override fun areItemsTheSame(oldItem: Todo, newItem: Todo): Boolean =
                 oldItem.todoId == newItem.todoId
 

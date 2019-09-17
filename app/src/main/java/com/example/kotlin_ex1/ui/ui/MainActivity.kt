@@ -41,7 +41,6 @@ class MainActivity : AppCompatActivity(),
             addItemDecoration(
                 MainListItemDecoration(LIST_SPACING)
             )
-            layoutManager = LinearLayoutManager(context)
             adapter = mainListAdapter
         }
 
