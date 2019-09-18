@@ -7,7 +7,4 @@
     <string name="add_note_dialog_fragment_todo_importance_high">High</string>
     <string name="add_note_dialog_fragment_cancel_btn_Txt">Cancel</string>
     <string name="add_note_dialog_fragment_ok_btn_txt">Add</string>
-    <string name="activity_main_list_adapter_title_tv_loading_txt">Loading title&#8230;</string>
-    <string name="activity_main_list_adapter_description_tv_loading_txt">Loading description&#8230;</string>
-    <string name="activity_main_list_adapter_importance_tv_loading_txt">Loading importance&#8230;</string>
 </resources>
