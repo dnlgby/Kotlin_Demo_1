@@ -1,5 +1,5 @@
 # Kotlin_EX1 - Android (Kotlin) Excercise #1
-Practicing the following topics:
+Demonstrates the following:
   * Kotlin language.
   * Coroutines - Kotlin & Android.
   * DI in android using Dagger2 lib.
