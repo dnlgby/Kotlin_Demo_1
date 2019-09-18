@@ -6,12 +6,17 @@
         <variable
             name="todoItem"
             type="com.example.kotlin_ex1.models.Todo" />
+
+        <variable
+            name="clickListener"
+            type="com.example.kotlin_ex1.ui.main.MainRecyclerAdapter.MainListClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="@{()->clickListener.onClick(todoItem)}"
         android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView

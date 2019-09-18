@@ -1,12 +1,14 @@
 package com.example.kotlin_ex1.ui.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.kotlin_ex1.R
 import com.example.kotlin_ex1.models.Todo
+import com.example.kotlin_ex1.ui.main.MainRecyclerAdapter.MainListClickListener
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -15,7 +17,7 @@ class MainActivity : AppCompatActivity(),
 
     companion object {
         const val LIST_SPACING = 10
-        const val ADD_NOTE_DIALOG_TAG = "com.example.kotlin_ex1.ui.ui.main.AddNoteDialogFragment"
+        const val ADD_NOTE_DIALOG_TAG = "com.example.kotlin_ex1.ui.main.AddNoteDialogFragment"
     }
 
     @Inject
@@ -35,7 +37,10 @@ class MainActivity : AppCompatActivity(),
     }
 
     private fun loadUi() {
-        mainListAdapter = MainRecyclerAdapter()
+        mainListAdapter = MainRecyclerAdapter(MainListClickListener { todoItem ->
+            Toast.makeText(this, todoItem.title, Toast.LENGTH_LONG).show()
+        })
+
         main_todoRecycler.apply {
             addItemDecoration(
                 MainListItemDecoration(LIST_SPACING)

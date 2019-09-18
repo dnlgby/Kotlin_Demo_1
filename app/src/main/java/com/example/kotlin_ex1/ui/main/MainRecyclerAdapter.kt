@@ -10,7 +10,7 @@ import com.example.kotlin_ex1.databinding.ActivityMainListItemBinding
 import com.example.kotlin_ex1.models.Todo
 
 
-class MainRecyclerAdapter :
+class MainRecyclerAdapter(private val clickListener: MainListClickListener) :
     PagedListAdapter<Todo, MainRecyclerAdapter.MainViewHolder>(
         AsyncDifferConfig.Builder<Todo>(DIFF_CALLBACK).build()
     ) {
@@ -26,13 +26,11 @@ class MainRecyclerAdapter :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        return MainViewHolder.from(
-            parent
-        )
+        return MainViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bindTo(getItem(position))
+        holder.bind(getItem(position), clickListener)
     }
 
     class MainViewHolder private constructor(private val binding: ActivityMainListItemBinding) :
@@ -46,9 +44,15 @@ class MainRecyclerAdapter :
             }
         }
 
-        fun bindTo(item: Todo?) {
+        fun bind(item: Todo?, clickListener: MainListClickListener) {
             binding.todoItem = item
+            binding.clickListener = clickListener
         }
+    }
+
+    //Main item click listener
+    class MainListClickListener(val clickListener: (Todo) -> Unit) {
+        fun onClick(todo: Todo) = clickListener(todo)
     }
 
 }
