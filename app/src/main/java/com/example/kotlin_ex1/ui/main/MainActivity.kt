@@ -1,13 +1,12 @@
-package com.example.kotlin_ex1.ui.ui
+package com.example.kotlin_ex1.ui.main
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.kotlin_ex1.R
-import com.example.kotlin_ex1.ui.models.Todo
+import com.example.kotlin_ex1.models.Todo
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -16,7 +15,7 @@ class MainActivity : AppCompatActivity(),
 
     companion object {
         const val LIST_SPACING = 10
-        const val ADD_NOTE_DIALOG_TAG = "com.example.kotlin_ex1.ui.ui.AddNoteDialogFragment"
+        const val ADD_NOTE_DIALOG_TAG = "com.example.kotlin_ex1.ui.ui.main.AddNoteDialogFragment"
     }
 
     @Inject

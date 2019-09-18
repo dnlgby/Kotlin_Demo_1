@@ -1,8 +1,9 @@
-package com.example.kotlin_ex1.ui.ui
+package com.example.kotlin_ex1.ui.main
 
 import android.graphics.Rect
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
+
 
 class MainListItemDecoration(private val space: Int)
     : RecyclerView.ItemDecoration() {

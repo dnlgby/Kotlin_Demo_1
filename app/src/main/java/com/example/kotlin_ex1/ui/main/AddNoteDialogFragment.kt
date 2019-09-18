@@ -1,4 +1,4 @@
-package com.example.kotlin_ex1.ui.ui
+package com.example.kotlin_ex1.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,8 +7,9 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import androidx.fragment.app.DialogFragment
 import com.example.kotlin_ex1.R
+import com.example.kotlin_ex1.models.Todo
 import kotlinx.android.synthetic.main.add_note_dialog_fragment.view.*
-import com.example.kotlin_ex1.ui.models.Todo
+
 
 class AddNoteDialogFragment(private val clicksListener: AddNoteDialogFragmentActions) :
     DialogFragment() {
