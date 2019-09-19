@@ -28,7 +28,8 @@ interface AppComponent: AndroidInjector<BaseApplication> {
     interface Builder {
 
         /*Here be bind the application instance, this is a part
-          of the builder now, pushed to the dependency graph*/
+          of the builder now, pushed to the dependency graph
+          Runtime dependency graph modifying*/
         @BindsInstance
         fun application(application: Application): Builder
 
