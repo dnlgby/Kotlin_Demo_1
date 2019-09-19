@@ -10,10 +10,11 @@ import javax.inject.Singleton
 @Module
 class AppModule {
 
-    @Singleton
-    @Provides
-    fun provideApplicationContext(app: Application): Context {
-        return app.applicationContext
-    }
+    // Don't need this. Application instance is already available through @BindsInstance in AppComponent
+//    @Singleton
+//    @Provides
+//    fun provideApplicationContext(app: Application): Context {
+//        return app.applicationContext
+//    }
 
 }

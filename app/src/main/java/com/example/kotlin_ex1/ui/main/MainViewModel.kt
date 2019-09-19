@@ -9,16 +9,17 @@ import com.example.kotlin_ex1.repositories.MainRepository
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainViewModel @Inject constructor() : ViewModel() {
+class MainViewModel
+@Inject
+constructor(
+    private val repository: MainRepository
+) : ViewModel() {
 
     companion object {
         const val TODO_LIST_PAGE_SIZE = 5
         const val TODO_LIST_MAX_SIZE = 200
         const val TODO_LIST_PLACE_HOLDER = true
     }
-
-    @Inject
-    lateinit var repository: MainRepository
 
 
     val todoListLiveData by lazy {

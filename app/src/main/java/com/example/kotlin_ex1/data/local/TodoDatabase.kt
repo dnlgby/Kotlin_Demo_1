@@ -15,7 +15,7 @@ abstract class TodoDatabase : RoomDatabase() {
     abstract fun todoDao(): TodoDao
 
     companion object {
-        private const val DB_NAME = "TodoDatabase"
+        const val DB_NAME = "TodoDatabase"
 
         @Volatile
         private lateinit var INSTANCE: TodoDatabase

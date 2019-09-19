@@ -35,12 +35,6 @@ interface AppComponent: AndroidInjector<BaseApplication> {
         fun build(): AppComponent
     }
 
-    // Extending from 'AndroidInjector<BaseApplication>' makes this 'inject' function not necessary.
-
-    /*We call inject with the application instance to inject into
-      the application object the dependencies inside. (All the @Inject annotated vars)
-      In our case we are talking on the 'DispatchingAndroidInjector' object. */
-    //fun inject(application: BaseApplication)
 }
 
 
