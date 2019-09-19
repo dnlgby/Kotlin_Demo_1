@@ -9,10 +9,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.kotlin_ex1.R
 import com.example.kotlin_ex1.models.Todo
 import com.example.kotlin_ex1.ui.main.MainRecyclerAdapter.MainListClickListener
+import dagger.android.support.DaggerAppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity(),
+class MainActivity : DaggerAppCompatActivity(),
     AddNoteDialogFragment.AddNoteDialogFragmentActions {
 
     companion object {

@@ -1,27 +1,13 @@
 package com.example.kotlin_ex1
 
-import android.app.Activity
-import android.app.Application
-import com.example.kotlin_ex1.di.AppInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasActivityInjector
-import javax.inject.Inject
+import com.example.kotlin_ex1.di.DaggerAppComponent
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
 
-class BaseApplication : Application(), HasActivityInjector {
-
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Activity>
-
-    override fun onCreate() {
-        super.onCreate()
-
-        /*
-           Here, at the moment of the Application creation, we initialize the application
-           Component and injecting application fields & attaching the listeners for Activity creation
-           injections as well.
-         */
-        AppInjector.init(this)
+class BaseApplication : DaggerApplication() {
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        return DaggerAppComponent.builder().application(this).build()
     }
 
-    override fun activityInjector() = dispatchingAndroidInjector
+
 }
