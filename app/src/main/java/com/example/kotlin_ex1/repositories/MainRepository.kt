@@ -18,11 +18,9 @@ constructor(
         return todoDao.getAllTodo()
     }
 
-
     suspend fun insertTodo(todo: Todo) {
         withContext(IO) {
             todoDao.insertTodo(todo)
         }
     }
-
 }

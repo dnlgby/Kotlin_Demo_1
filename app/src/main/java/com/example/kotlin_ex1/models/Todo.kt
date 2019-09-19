@@ -23,12 +23,6 @@ data class Todo(
 
         fun importanceToString(importance: TodoImportance?): String? {
             return importanceMap[importance]
-
-        }
-
-        fun stringToImportance(importanceString: String?): TodoImportance?{
-            val reversedImportanceMap = importanceMap.entries.associateBy({ it.value }) { it.key }
-            return reversedImportanceMap[importanceString]
         }
     }
 

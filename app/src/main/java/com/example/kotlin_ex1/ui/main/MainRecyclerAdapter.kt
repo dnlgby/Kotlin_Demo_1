@@ -30,7 +30,7 @@ class MainRecyclerAdapter(private val clickListener: MainListClickListener) :
     }
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
-        holder.bind(getItem(position), clickListener)
+        holder.bind(getItem(position)!!, clickListener)
     }
 
     class MainViewHolder private constructor(private val binding: ActivityMainListItemBinding) :
@@ -44,7 +44,7 @@ class MainRecyclerAdapter(private val clickListener: MainListClickListener) :
             }
         }
 
-        fun bind(item: Todo?, clickListener: MainListClickListener) {
+        fun bind(item: Todo, clickListener: MainListClickListener) {
             binding.todoItem = item
             binding.clickListener = clickListener
         }
