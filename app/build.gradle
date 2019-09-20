@@ -37,19 +37,12 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.activity:activity-ktx:1.0.0-rc01'
+    
     // -- Dagger
     def dagger2_version = "2.22.1"
-    kapt 'com.google.dagger:dagger-compiler:2.22.1'
-    kapt 'com.google.dagger:dagger-android-processor:2.22.1'
-    implementation 'com.google.dagger:dagger-android-support:2.22.1'
-//    implementation "com.google.dagger:dagger:$dagger2_version"
-//    implementation "com.google.dagger:dagger-android:$dagger2_version"
-//    implementation  "com.google.dagger:dagger-android-support:$dagger2_version"
-//    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
-//    kapt "com.google.dagger:dagger-android-processor:$dagger2_version"
-
-
-
+    kapt "com.google.dagger:dagger-compiler:$dagger2_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger2_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger2_version"
 
     // -- Room
     def room_version = "2.1.0-alpha04"
@@ -61,12 +54,8 @@ dependencies {
     def paging_version = "2.1.0"
     implementation "androidx.paging:paging-runtime-ktx:$paging_version"
 
-    // -- Retrofit2
-    def retrofit2_version = "2.6.0"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
 
-    // -- Lifecycle Components (ViewModel, LiveData and ReactiveStreams)
+    // -- Lifecycle Components
     def lifecycle_version = "2.2.0-alpha04"
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
@@ -85,13 +74,9 @@ dependencies {
     def material_version = "1.1.0-alpha10"
     implementation "com.google.android.material:material:$material_version"
 
-    //glide
-    def glide_version = "4.9.0"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
+//    //glide
+//    def glide_version = "4.9.0"
+//    implementation "com.github.bumptech.glide:glide:$glide_version"
+//    annotationProcessor "com.github.bumptech.glide:compiler:$glide_version"
 
-    // Leak Canary (detecting memory leaks)
-    def leak_canary_version = "2.0-alpha-3"
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
 }
